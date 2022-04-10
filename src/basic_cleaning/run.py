@@ -35,10 +35,8 @@ def go(args):
     max_val = args.max_price
     # subset based on min and max_val
     # Just picked 2018-01-01 as the date for filling the NAs
-    df = df[(df['price'] > min_val) & (df['price'] < max_val)]
-    df['last_review'] = pd.to_datetime(df['last_review']).fillna(value=pd.Timestamp("20180101"),inplace=True)
-    df['reviews_per_month'].fillna(value=0, inplace=True)
-
+    idx = df['price'].between(min_val, max_val)
+    df = df[idx].copy()
     df.to_csv("clean_sample.csv", index=False)
 
     artifact = wandb.Artifact(
