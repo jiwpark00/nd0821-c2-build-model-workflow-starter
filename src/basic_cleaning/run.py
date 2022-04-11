@@ -37,6 +37,11 @@ def go(args):
     # Just picked 2018-01-01 as the date for filling the NAs
     idx = df['price'].between(min_val, max_val)
     df = df[idx].copy()
+
+    logger.info("Adding this for new data sample handling")
+    idx = df['longitude'].between(-74.25, -73.50) & df['latitude'].between(40.5, 41.2)
+    df = df[idx].copy()
+
     df.to_csv("clean_sample.csv", index=False)
 
     artifact = wandb.Artifact(
