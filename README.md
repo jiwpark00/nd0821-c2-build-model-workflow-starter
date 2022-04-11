@@ -8,10 +8,15 @@ In this project you will build such a pipeline.
 
 
 ## Note: This project was submitted to Udacity and was approved. Specific changes for this assignment include:
+
 -- Weights and biases incorporation with MLflow
+
 -- Completion of eda, basic_cleaning, data_check, and train_random_forest for traditional model training
+
 -- Additional completion of train_val_test_split, test_regression_model (deterministic unit testing utilized via pytest)
+
 -- Releases (three releases)
+
 -- Re-training
 
 
